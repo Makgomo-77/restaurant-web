@@ -104,4 +104,52 @@ document.addEventListener('DOMContentLoaded', function() {
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
+});// WhatsApp & Email Booking System
+document.getElementById('reservationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const guests = document.getElementById('guests').value;
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const requests = document.getElementById('specialRequests').value;
+
+  // Format date (e.g., "05 August 2023")
+  const formattedDate = new Date(date).toLocaleDateString('en-ZA', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  // Create booking message
+  const message = `📅 *New Booking Request* 📅
+  \n*Name:* ${name}
+  *Email:* ${email}
+  *Phone:* ${phone}
+  *Guests:* ${guests}
+  *Date:* ${formattedDate}
+  *Time:* ${time}
+  *Special Requests:* ${requests || 'None'}`;
+
+  // Encode for WhatsApp URL
+  const encodedMessage = encodeURIComponent(message);
+  
+  // Send via WhatsApp (opens in new tab)
+  const whatsappUrl = `https://wa.me/27639374786?text=${encodedMessage}`;
+  window.open(whatsappUrl, '_blank');
+  
+  // Send via Email (mailto link)
+  const emailSubject = `New Booking: ${name} - ${formattedDate}`;
+  const emailBody = message.replace(/\*/g, ''); // Remove Markdown for email
+  const emailUrl = `mailto:makgomoshayi@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+  window.location.href = emailUrl;
+
+  // Show confirmation to user
+  alert('Thank you! Your booking request has been sent. We will confirm shortly via WhatsApp or email.');
+  
+  // Reset form
+  this.reset();
 });
