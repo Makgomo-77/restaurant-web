@@ -1,1 +1,279 @@
+/* General Styles */
+:root {
+    --primary-color: #6c757d;
+    --secondary-color: #343a40;
+    --accent-color: #d4af37;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
 
+body {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-color);
+    padding-top: 56px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--dark-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Section Styles */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.section-subtitle {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+/* Menu Cards */
+.menu-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    padding: 15px 20px;
+}
+
+.bg-wine {
+    background-color: #722f37;
+}
+
+.bg-champagne {
+    background-color: #f5d76e;
+    color: #333 !important;
+}
+
+.bg-seafood {
+    background-color: #1e6f9a;
+}
+
+.bg-kiddies {
+    background-color: #e67e22;
+}
+
+.bg-dessert {
+    background-color: #8e44ad;
+}
+
+.menu-item-details {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.menu-item-details:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.menu-item-details h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-top: 5px;
+}
+
+/* Filter Buttons */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Testimonials */
+.testimonial-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-rating {
+    color: var(--accent-color);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author h6 {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* Forms */
+.reservation-form, .contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-control, .form-select {
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+}
+
+/* Map */
+.map-section {
+    width: 100%;
+}
+
+/* Footer */
+footer a {
+    color: var(--light-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        padding: 100px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+}
